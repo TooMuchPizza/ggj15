@@ -12,5 +12,6 @@ class RockGroup extends Group<Rock> {
 
   void generateRocks(/* paramters to do AMAZING lanes */) {
     addRock(100, 100, 24);
+    addRock(150, 200, 48);
   }
 }

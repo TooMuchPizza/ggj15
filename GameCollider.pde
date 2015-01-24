@@ -1,5 +1,5 @@
-class RockCollider extends GenericMassedCollider<Entity, Entity> {
-  RockCollider() {
+class GameCollider extends GenericMassedCollider<Entity, Entity> {
+  GameCollider() {
     super(0);
   }
   

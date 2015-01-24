@@ -11,8 +11,10 @@ static final int WINDOW_HEIGHT = 600;
 GameWorld world;
 GameCamera cam;
 PostOffice po; 
+
 RockGroup rocks;
 Player player;
+NpcGroup npcs;
 
 
 void setup() {

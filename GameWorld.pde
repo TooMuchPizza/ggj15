@@ -19,7 +19,12 @@ class GameWorld extends World {
     po.subscribe(player, POCodes.Key.LEFT);
     po.subscribe(player, POCodes.Key.RIGHT);
 
-    world.register(player, rocks, new RockCollider());
+    npcs = new NpcGroup(world);
+    npcs.generateNpc();
+
+    world.register(player, rocks, new GameCollider());
+    world.register(player, npcs, new GameCollider());
+    world.register(npcs, rocks, new GameCollider());
   }
   
   void draw() {

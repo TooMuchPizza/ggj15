@@ -3,6 +3,11 @@ class Player extends Entity {
     super(x, y, 16);
   }
 
+  void update() {
+    super.update();
+    // stuff
+  }
+
   void receive(KeyMessage m) {
     int nKey = m.getKeyCode();
     if(m.isPressed()) {
