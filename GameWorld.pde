@@ -3,11 +3,9 @@ class GameWorld extends World {
   ArrayList<Rock> rocks;
   ArrayList<Wall> walls;
   ArrayList<Trap> traps;
-  //PostOffice po;
 
-  GameWorld (/*PostOffice _po, */HCamera cam) {
+  GameWorld (HCamera cam) {
     super(po, cam);
-    //po = _po;
     players = new ArrayList<Player>();
     rocks = new ArrayList<Rock>();
     walls = new ArrayList<Wall>();
@@ -44,19 +42,19 @@ class GameWorld extends World {
     players.add (p);
     register (p, true);
 
-    for(Rock r: rocks) {
+    for (Rock r: rocks) {
       register (p, r, new GameCollider ());
     }
-    for(Wall w: walls) {
+    for (Wall w: walls) {
       register (p, w, new WallCollider ());
     }
-    for(Trap t: traps) {
+    for (Trap t: traps) {
       register (p, t, new TrapTrigger ());
     }
   }
-  
-  void draw() {
-    background(0);
-    super.draw();
+
+  void draw () {
+    background (0);
+    super.draw ();
   }
 }
