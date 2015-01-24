@@ -5,6 +5,9 @@ class GameController {
   GameCamera gameCamera;
 
   GameController () {
+  }
+ 
+  void startGame () {
     players = new ArrayList<Player>();
     Player p1 = new Player (150, 150);
 
@@ -22,9 +25,6 @@ class GameController {
     for (Player p: players) {
       p.subscribe();
     }
-  }
- 
-  void startGame () {
     gameWorld.start();
   }
 
