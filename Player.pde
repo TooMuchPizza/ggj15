@@ -1,6 +1,11 @@
+int GAME_WIDTH = 600;
+int GAME_HEIGHT = 300;
+
 class Player extends Entity {
   Player(float x, float y) {
     super(x, y, 16);
+    _position.x = 220;
+    _position.y = 100;
   }
 
   void update() {
@@ -12,7 +17,7 @@ class Player extends Entity {
     int nKey = m.getKeyCode();
     if(m.isPressed()) {
       if(nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT) {
-        getVelocity().x = speed;
+        getVelocity().x = +speed;
       }
       if(nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
         getVelocity().x = -speed;
@@ -21,14 +26,14 @@ class Player extends Entity {
         getVelocity().y = -speed;
       }
       if(nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
-        getVelocity().y = speed;
-      }
+        getVelocity().y = +speed;
+    }
 
       float vel = sqrt(pow(getVelocity().y,2) + pow(getVelocity().x,2));
       if(vel > 0.0) {
-        getVelocity().x = speed*getVelocity().x/vel;
-        getVelocity().y = speed*getVelocity().y/vel;
-      }
+        getVelocity().x = speed*getVelocity().x/vel;     
+        getVelocity().y = speed*getVelocity().y/vel; 
+  }
 
     } else {
       if( nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT ||
@@ -38,7 +43,8 @@ class Player extends Entity {
       if( nKey == POCodes.Key.W || nKey == POCodes.Key.UP ||
           nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
         getVelocity().y = 0;
-      }
-    }
-  }
-}
+        }
+      }  
+    } 
+  } 
+
