@@ -24,20 +24,20 @@ class MainMenu {
   }
 }
 void mousePressed() {
-  if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
-isServer = true;
+  if(!started) {
+    if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
+      isServer = true;
+      started = true;
+      gameController.startGame();
+    }
 
-    started = true;
-    gameController.startGame();
-  }
+    if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
+     isServer = false;
 
-  if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
-   isServer = false;
-
-    started = true;
-    gameController.startGame();
-  }
-   
+      started = true;
+      gameController.startGame();
+    }
+  } 
   
 }
 
