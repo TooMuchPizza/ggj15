@@ -19,6 +19,7 @@ class GameController {
   }
 
   void startGame() {
+    started = true;
     if (isServer) {
       oscP5 = new OscP5(this,5001);
     } else {
