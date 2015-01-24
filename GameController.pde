@@ -4,6 +4,7 @@ class GameController {
   Hud hud;
   GameCamera gameCamera;
   GameTimer gameTimer;
+  OscP5 oscP5;
 
   GameController () {
   }
@@ -41,7 +42,7 @@ class GameController {
     gameTimer.start ();
   }
   
-  void oscEvent(OscMessage theOscMessage){
+  void oscEvent(oscP5.OscMessage theOscMessage){
     
   } 
 
