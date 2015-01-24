@@ -5,6 +5,7 @@ class Player extends Entity {
 
   Player (float x, float y) {
     super (x, y, 16);
+
     health = 100f;
     speed = 200f;
     xVelocity = yVelocity = 0f;
@@ -21,12 +22,6 @@ class Player extends Entity {
     po.subscribe(this, POCodes.Key.RIGHT);
   }  
 
-  void draw() {
-    noStroke();
-    fill(255,255,255);
-    _shape.draw();
-  }
-
   void update() {
     super.update();
 
@@ -40,8 +35,13 @@ class Player extends Entity {
     }
   }
 
+  void draw() {
+    noStroke();
+    fill(255,255,255);
+    _shape.draw();
+  }
+
   void receive(KeyMessage m) {
-    
     int nKey = m.getKeyCode();
     boolean changedXVelocity, changedYVelocity;
     changedXVelocity = changedYVelocity = false;

@@ -3,6 +3,7 @@ class GameController {
   GameWorld gameWorld;
   Hud hud;
   GameCamera gameCamera;
+  GameTimer gameTimer;
 
   GameController () {
     players = new ArrayList<Player>();
@@ -22,10 +23,17 @@ class GameController {
     for (Player p: players) {
       p.subscribe();
     }
+
+    gameTimer = new GameTimer ();
   }
  
   void startGame () {
-    gameWorld.start();
+    gameWorld.start ();
+    gameTimer.start ();
+  }
+
+  public void update () {
+    gameTimer.update ();
   }
 
   public void draw () {

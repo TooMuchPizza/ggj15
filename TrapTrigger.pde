@@ -6,9 +6,12 @@ class TrapTrigger extends GenericMassedCollider<Entity, Trap> {
     triggered = false;
   }
 
-  void handle (Entity e, Trap t) {}
-
-  boolean detect (Entity entity, Trap trap) {
-    return super.detect (entity, trap);
+  void handle (Entity e, Trap t) {
+    if (!triggered) println("Boom.");
+    else return;
+    triggered = !triggered;
   }
+
+  //boolean detect (Entity entity, Trap trap) {
+  //}
 }

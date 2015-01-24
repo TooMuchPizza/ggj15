@@ -2,6 +2,7 @@ class GameWorld extends World {
   ArrayList<Player> players;
   ArrayList<Rock> rocks;
   ArrayList<Wall> walls;
+  ArrayList<Trap> traps;
   //PostOffice po;
 
   GameWorld (/*PostOffice _po, */HCamera cam) {
@@ -10,6 +11,7 @@ class GameWorld extends World {
     players = new ArrayList<Player>();
     rocks = new ArrayList<Rock>();
     walls = new ArrayList<Wall>();
+    traps = new ArrayList<Trap>();
   }
 
   void setup() {
@@ -18,13 +20,17 @@ class GameWorld extends World {
   }
 
   void loadMap (Map _map) {
-    for(Rock r: _map.rocks) {
+    for (Rock r: _map.rocks) {
       register (r, false);
       rocks.add (r);
     }
-    for(Wall w: _map.walls) {
+    for (Wall w: _map.walls) {
       register (w, false);
       walls.add (w);
+    }
+    for (Trap t: _map.traps) {
+      register (t, false);
+      traps.add (t);
     }
   }
 
@@ -43,6 +49,9 @@ class GameWorld extends World {
     }
     for(Wall w: walls) {
       register (p, w, new WallCollider ());
+    }
+    for(Trap t: traps) {
+      register (p, t, new TrapTrigger ());
     }
   }
   

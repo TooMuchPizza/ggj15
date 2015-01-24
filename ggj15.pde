@@ -26,10 +26,14 @@ void setup() {
   Hermes.setPApplet(this);
 
   gameController = new GameController ();
-  gameController.startGame();
-  mainMenu = new MainMenu();
+  gameController.startGame ();
+  mainMenu = new MainMenu ();
   
   
+}
+
+void update () {
+  gameController.update ();
 }
 
 void draw () {
