@@ -8,7 +8,8 @@ import hermes.postoffice.*;
 static final int WINDOW_WIDTH = 600;
 static final int WINDOW_HEIGHT = 600;
 
-World world;
+GameWorld world;
+GameCamera cam;
 PostOffice po; 
 RockGroup rocks;
 Player player;
@@ -19,8 +20,9 @@ void setup() {
   background(0); 
   Hermes.setPApplet(this);
 
+  cam = new GameCamera();
   po = new PostOffice();
-  world = new GameWorld();       
+  world = new GameWorld();
 
   world.start();
 }

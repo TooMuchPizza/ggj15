@@ -1,7 +1,7 @@
 class GameWorld extends World {
 
   GameWorld() {
-    super(po);
+    super(po, cam);
   }
 
   void setup() {
