@@ -11,16 +11,11 @@ class WallGroup extends Group<Wall> {
   }
 
   void generateWalls(/* paramters to do AMAZING lanes */) {
-   
-    
-  addWall(-10,-10,10,1000);  
-   addWall(0,-10,1000,10);  
-    addWall(-10,990,1000,10);  
-     addWall(990,0,10,1000);  
-  
-    
-    
-}
+    addWall(-10,-10,10,MAP_HEIGHT);
+    addWall(0,-10,MAP_WIDTH,10);
+    addWall(-10,MAP_HEIGHT-10, MAP_WIDTH,10);
+    addWall(MAP_HEIGHT-10,0,10,MAP_HEIGHT);
+  }
 }
 
 

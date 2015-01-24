@@ -18,7 +18,7 @@ class Player extends Entity {
     getVelocity().x = xVelocity;
     getVelocity().y = yVelocity;
     
-    if(getPosition().x > 960 && getPosition().y > 400 && getPosition().y < 600){
+    if(getPosition().x > 940 && getPosition().y > 400 && getPosition().y < 600){
      println("FINISH"); 
     }
    
