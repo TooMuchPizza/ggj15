@@ -20,33 +20,32 @@ class GameController {
 
   void startGame() {
     started = true;
-    if (isServer) {
+    if (isServer)
       oscP5 = new OscP5(this,5001);
-    } else {
-        players = new ArrayList<Player>();
-        Player p1 = new Player (150, 150);
+
+    players = new ArrayList<Player>();
+    Player p1 = new Player (150, 150);
     
-        players.add(p1);
+    players.add(p1);
     
-        hud = new Hud(p1);
-        gameCamera = new GameCamera(p1, hud);
+    hud = new Hud(p1);
+    gameCamera = new GameCamera(p1, hud);
     
-        gameWorld = new GameWorld(gameCamera);
-        gameWorld.loadMap(new Map()); 
-        gameWorld.addPlayer(p1);
+    gameWorld = new GameWorld(gameCamera);
+    gameWorld.loadMap(new Map()); 
+    gameWorld.addPlayer(p1);
     
-        for (Player p: players) {
-          p.subscribe();
-        }
-        gameWorld.start();
+    for (Player p: players) {
+      p.subscribe();
     }
+    gameWorld.start();
   }
   
   void oscEvent(oscP5.OscMessage theOscMessage){
     
   } 
 
-  public void draw() {
+  void draw() {
     gameWorld.draw();
   }
 }
