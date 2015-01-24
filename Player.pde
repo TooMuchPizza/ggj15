@@ -1,20 +1,8 @@
-class Player extends Being {
-  
-  final static float PLAYER_RADIUS = 16;
-  float speed = 150;
- 
+class Player extends Entity {
   Player(float x, float y) {
-    super(new HCircle(HermesMath.makeVector(x, y), PLAYER_RADIUS));
+    super(x, y, 16);
   }
-  
-  void draw() {
-    noStroke();
-    _shape.draw();
-  }
-  
-  void update() {
-  }
-  
+
   void receive(KeyMessage m) {
     int nKey = m.getKeyCode();
     if(m.isPressed()) {
