@@ -9,7 +9,7 @@ class GameWorld extends World {
     rocks.generateRocks();
     walls = new WallGroup(world);
     walls.generateWalls();
-    player = new Player(300, 300);
+    player = new Player(40, 500);
     world.register(player, true);
     po.subscribe(player, POCodes.Key.W);
     po.subscribe(player, POCodes.Key.A);
