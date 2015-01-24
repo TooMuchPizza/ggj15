@@ -1,0 +1,61 @@
+class PlayerController extends MassedBeing {
+  float speed;
+  Player player;
+  
+  PlayerController (Player p) {
+    super();
+    speed = 200f;
+    player = p;
+  }
+
+  void receive(KeyMessage m) {
+    println("received");
+    int nKey = m.getKeyCode();
+    boolean changedXVelocity, changedYVelocity;
+    changedXVelocity = changedYVelocity = false;
+    float newXVelocity = 0;
+    float newYVelocity = 0;
+    
+    if(m.isPressed()) {
+      if(nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT) {
+        newXVelocity = speed;
+        changedXVelocity = true;
+        println("right");
+      }
+      if(nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
+        newXVelocity = -speed;
+        changedXVelocity = true;
+        println("right");
+      }
+      if(nKey == POCodes.Key.W || nKey == POCodes.Key.UP) {
+        newYVelocity = -speed;
+        changedYVelocity = true;
+        println("right");
+      }
+      if(nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
+        newYVelocity = speed;
+        changedYVelocity = true;
+        println("right");
+      }
+
+      float vel = sqrt(pow(player.body.yVelocity, 2) + 
+                        pow(player.body.xVelocity, 2));
+      if(vel > 0f) {
+        if (changedXVelocity) newXVelocity = speed * newXVelocity / vel;
+        if (changedYVelocity) newYVelocity = speed * newYVelocity / vel;
+      }
+    } else {
+      if( nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT ||
+          nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
+          newXVelocity = 0f;
+      }
+      if( nKey == POCodes.Key.W || nKey == POCodes.Key.UP ||
+          nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
+          newYVelocity = 0f;
+      }
+    }
+    player.body.xVelocity = newXVelocity;
+    player.body.yVelocity = newYVelocity;
+  }
+}
+

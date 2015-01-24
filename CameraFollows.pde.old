@@ -1,0 +1,14 @@
+class CameraFollows extends Being {
+  HCamera camera;
+  Entity entity;
+
+  CameraFollows (HCamera _camera, Entity _entity) {
+    camera = _camera;
+    entity = _entity;
+  }
+
+  void update () {
+    camera.setPosition(entity.getPosition().x - WINDOW_WIDTH / 2,
+      entity.getPosition().y - WINDOW_HEIGHT / 2 );
+  }
+}
