@@ -1,13 +1,15 @@
 class Player extends Being {
   
   final static float PLAYER_RADIUS = 16;
+  final static float PLAYER_SPEED = 150;
  
   Player(float x, float y) {
     super(new HCircle(HermesMath.makeVector(x, y), PLAYER_RADIUS));
   }
   
   void draw() {
-    // draw the player
+    noStroke();
+    _shape.draw();
   }
   
   void update() {
@@ -17,20 +19,25 @@ class Player extends Being {
     int nKey = m.getKeyCode();
     if(m.isPressed()) {
       if(nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT) {
-        println("RIGHT");
+        getVelocity().x = PLAYER_SPEED;
       }
       if(nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
-        println("LEFT");
+        getVelocity().x = -PLAYER_SPEED;
       }
       if(nKey == POCodes.Key.W || nKey == POCodes.Key.UP) {
-        println("UP");
+        getVelocity().y = -PLAYER_SPEED;
       }
       if(nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
-        println("DOWN");
-      } else {
-        if(nKey == POCodes.Key.D || nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT || nKey == POCodes.Key.RIGHT) {
-          // stop the player
-        }
+        getVelocity().y = PLAYER_SPEED;
+      }
+    } else {
+      if( nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT ||
+          nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
+        getVelocity().x = 0;
+      }
+      if( nKey == POCodes.Key.W || nKey == POCodes.Key.UP ||
+          nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
+        getVelocity().y = 0;
       }
     }
   }

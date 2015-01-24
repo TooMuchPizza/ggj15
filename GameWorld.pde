@@ -5,7 +5,7 @@ class GameWorld extends World {
   }
 
   void setup() {
-    player = new Player(100, 100);
+    player = new Player(300, 300);
     world.register(player, true);
     po.subscribe(player, POCodes.Key.W);
     po.subscribe(player, POCodes.Key.A);
