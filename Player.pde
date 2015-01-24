@@ -18,17 +18,18 @@ class Player extends Entity {
     int nKey = m.getKeyCode();
     boolean changedXVelocity, changedYVelocity;
     changedXVelocity = changedYVelocity = false;
+    
     if(m.isPressed()) {
       if(nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT) {
         xVelocity = speed;
         changedXVelocity = true;
       }
       if(nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
-        xVelocity = - speed;
+        xVelocity = -speed;
         changedXVelocity = true;
       }
       if(nKey == POCodes.Key.W || nKey == POCodes.Key.UP) {
-        yVelocity = - speed;
+        yVelocity = -speed;
         changedYVelocity = true;
       }
       if(nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {

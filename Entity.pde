@@ -1,6 +1,6 @@
 class Entity extends MassedBeing {
   
-  float speed = 150f;
+  float speed = 200f;
   float radius = 50f;
  
   Entity(float x, float y, float r) {
