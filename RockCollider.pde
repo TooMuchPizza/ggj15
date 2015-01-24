@@ -1,9 +1,9 @@
-class RockCollider extends Collider<Entity, Being> {
+class RockCollider extends GenericMassedCollider<Entity, Entity> {
   RockCollider() {
-    super();
+    super(0);
   }
   
-  void handle(Entity ent, Being r) {
-    println("HIT");
+  void handle(Entity e1, Entity e2) {
+    super.handle(e1, e2);
   }
 }
