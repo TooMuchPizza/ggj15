@@ -30,6 +30,5 @@ class GameController {
 
   public void draw () {
     gameWorld.draw ();
-    //hud.draw ();
   }
 }

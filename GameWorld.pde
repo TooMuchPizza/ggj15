@@ -1,13 +1,15 @@
 class GameWorld extends World {
   ArrayList<Player> players;
-  ArrayList<MassedBeing> massed;
+  ArrayList<Rock> rocks;
+  ArrayList<Wall> walls;
   //PostOffice po;
 
   GameWorld (/*PostOffice _po, */HCamera cam) {
     super(po, cam);
     //po = _po;
     players = new ArrayList<Player>();
-    massed = new ArrayList<MassedBeing>();
+    rocks = new ArrayList<Rock>();
+    walls = new ArrayList<Wall>();
   }
 
   void setup() {
@@ -18,26 +20,29 @@ class GameWorld extends World {
   void loadMap (Map _map) {
     for(Rock r: _map.rocks) {
       register (r, false);
-      massed.add (r);
+      rocks.add (r);
     }
     for(Wall w: _map.walls) {
       register (w, false);
-      massed.add (w);
+      walls.add (w);
     }
   }
 
-  void addGameCollider (Entity entity) {
-    for (Player p: players) {
-      register (p, entity, new GameCollider ());
-    }
-  }
+  //void addGameCollider (MassedBeing mb) {
+  //  for (Player p: players) {
+  //    register (p, mb, new GameCollider ());
+  //  }
+  //}
 
   void addPlayer (Player p) {
     players.add (p);
     register (p, true);
 
-    for(MassedBeing m: massed) {
-      register (p, m, new GameCollider ());
+    for(Rock r: rocks) {
+      register (p, r, new GameCollider ());
+    }
+    for(Wall w: walls) {
+      register (p, w, new WallCollider ());
     }
   }
   
