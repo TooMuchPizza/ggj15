@@ -25,7 +25,6 @@ void setup() {
   cam = new GameCamera();
   po = new PostOffice();
   world = new GameWorld();
-
   world.start();
 }
 
