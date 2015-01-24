@@ -12,6 +12,7 @@ static final int WINDOW_HEIGHT = 600;
 static final int MAP_WIDTH = 2000;
 static final int MAP_HEIGHT = 1000;
 Boolean started = false;
+Boolean isServer = false;
 //int GAME_WIDTH = 600;
 //int GAME_HEIGHT = 300;
 
@@ -28,8 +29,6 @@ void setup() {
   gameController = new GameController ();
   gameController.startGame ();
   mainMenu = new MainMenu ();
-  
-  
 }
 
 void update () {
@@ -40,6 +39,7 @@ void draw () {
 
  if(started){
      gameController.draw ();
+     
 
  }else{
   mainMenu.draw();

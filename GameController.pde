@@ -6,6 +6,9 @@ class GameController {
   GameTimer gameTimer;
 
   GameController () {
+  }
+ 
+  void startGame () {
     players = new ArrayList<Player>();
     Player p1 = new Player (150, 150);
 
