@@ -11,12 +11,13 @@ static final int WINDOW_HEIGHT = 600;
 
 static final int MAP_WIDTH = 2000;
 static final int MAP_HEIGHT = 1000;
-
+Boolean started = false;
 //int GAME_WIDTH = 600;
 //int GAME_HEIGHT = 300;
 
 PostOffice po; 
 //NpcGroup npcs;
+MainMenu mainMenu;
 GameController gameController;
 
 void setup() {
@@ -26,8 +27,18 @@ void setup() {
 
   gameController = new GameController ();
   gameController.startGame();
+  mainMenu = new MainMenu();
+  
+  
 }
 
 void draw () {
-  gameController.draw ();
+
+ if(started){
+     gameController.draw ();
+
+ }else{
+  mainMenu.draw();
+ }
+
 }
