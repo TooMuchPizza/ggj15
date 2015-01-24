@@ -14,7 +14,7 @@ class WallGroup extends Group<Wall> {
     addWall(-10,-10,10,MAP_HEIGHT);
     addWall(0,-10,MAP_WIDTH,10);
     addWall(-10,MAP_HEIGHT-10, MAP_WIDTH,10);
-    addWall(MAP_HEIGHT-10,0,10,MAP_HEIGHT);
+    addWall(MAP_WIDTH-10,0,10,MAP_HEIGHT);
   }
 }
 
