@@ -8,6 +8,10 @@ static final int HEALTH = 100;
 static final int WINDOW_WIDTH = 1000;
 static final int WINDOW_HEIGHT = 600;
 
+static final int MAP_WIDTH = 2000;
+static final int MAP_HEIGHT = 600;
+
+
 GameWorld world;
 GameCamera cam;
 PostOffice po; 
