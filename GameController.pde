@@ -9,35 +9,41 @@ class GameController {
   }
  
   void loadGame () {
-    players = new ArrayList<Player>();
-    Player p1 = new Player (150, 150);
-
-    players.add (p1);
-
-    hud = new Hud (p1);
-    gameCamera = new GameCamera (p1, hud);
-
     po = new PostOffice ();
-
-    gameWorld = new GameWorld (gameCamera);
-    gameWorld.loadMap (new Map ()); 
-    gameWorld.addPlayer(p1);
-
-    for (Player p: players) {
-      p.subscribe();
-    }
-
     gameTimer = new GameTimer ();
-  }
-
-  void startGame () {
-    gameWorld.start ();
-    gameTimer.start ();
   }
 
   public void update () {
     gameTimer.update ();
   }
+
+  void startGame () {
+    if (isServer){
+      oscP5 = new OscP5(this,5001);
+    } else {
+        players = new ArrayList<Player>();
+        Player p1 = new Player (150, 150);
+    
+        players.add (p1);
+    
+        hud = new Hud (p1);
+        gameCamera = new GameCamera (p1, hud);
+    
+        gameWorld = new GameWorld (gameCamera);
+        gameWorld.loadMap (new Map ()); 
+        gameWorld.addPlayer(p1);
+    
+        for (Player p: players) {
+          p.subscribe();
+        }
+        gameWorld.start();
+    }
+    gameTimer.start ();
+  }
+  
+  void oscEvent(OscMessage theOscMessage){
+    
+  } 
 
   public void draw () {
     gameWorld.draw ();
