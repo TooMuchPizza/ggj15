@@ -9,6 +9,8 @@ static final int WINDOW_WIDTH = 600;
 static final int WINDOW_HEIGHT = 600;
 
 World world;
+PostOffice po; 
+Player player;
 
 
 void setup() {
@@ -16,6 +18,7 @@ void setup() {
   background(0); 
   Hermes.setPApplet(this);
 
+  po = new PostOffice();
   world = new GameWorld();       
 
   world.start();
@@ -23,4 +26,5 @@ void setup() {
 
 
 void draw() {
+  world.draw();
 }
