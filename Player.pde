@@ -10,6 +10,7 @@ class Player extends Entity {
     speed = 200f;
     xVelocity = yVelocity = 0f;
   }
+  
 
   public void subscribe () {
     po.subscribe(this, POCodes.Key.W);
@@ -33,6 +34,14 @@ class Player extends Entity {
          getPosition().y < 600) {
       println("FINISH"); 
     }
+  }
+  
+  void messageFromClient(oscP5.OscMessage theOscMessage){
+    //TODO
+  }
+  
+  void messageFromServer(oscP5.OscMessage theOscMessage){
+    //TODO
   }
 
   void draw() {
