@@ -1,6 +1,6 @@
 int GAME_WIDTH = 600;
 int GAME_HEIGHT = 300;
-
+float playerhealth = 100;
 class Player extends Entity {
   float xVelocity, yVelocity;
   
