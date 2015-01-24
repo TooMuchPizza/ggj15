@@ -8,7 +8,7 @@ class Player extends Entity {
     super(x, y, 16);
 
     xVelocity = yVelocity = 0f;
-
+    
   }
 
   void update() {
@@ -17,8 +17,12 @@ class Player extends Entity {
     // stuff
     getVelocity().x = xVelocity;
     getVelocity().y = yVelocity;
+    
+    if(getPosition().x > 960 && getPosition().y > 400 && getPosition().y < 600){
+     println("FINISH"); 
+    }
+   
   }
-
   void receive(KeyMessage m) {
     int nKey = m.getKeyCode();
     boolean changedXVelocity, changedYVelocity;
