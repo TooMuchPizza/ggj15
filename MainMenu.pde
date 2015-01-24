@@ -33,6 +33,9 @@ isServer = true;
 
   if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
    isServer = false;
+
+    started = true;
+    gameController.startGame();
   }
    
   
