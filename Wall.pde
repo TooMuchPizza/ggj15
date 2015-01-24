@@ -1,10 +1,7 @@
-
 class Wall extends MassedBeing {
-
 
   Wall(float x,float y,float w,float h) {
     super(new HRectangle(x,y,w,h),new PVector(0,0,0),1000,0);
-
   }
 
   public void update() {
@@ -18,6 +15,4 @@ class Wall extends MassedBeing {
     noStroke();
     _shape.draw();
   }
-  
-
 }

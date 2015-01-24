@@ -10,10 +10,10 @@ class Entity extends MassedBeing {
     radius = r;
   }
   
-  void draw() {
-_mass = 100;
+  public void draw() {
+    _mass = 100;
     noStroke();
-    fill(255,255,255);
+    fill(255, 255, 255);
     _shape.draw();
   }
   

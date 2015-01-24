@@ -5,13 +5,13 @@ class NpcGroup extends Group<Npc> {
   }
 
   void addNpc(float x, float y) {
-    Npc npc = new Npc(x, y);
-    world.register(npc, true);
-    this.add(npc);
+    //Npc npc = new Npc(x, y);
+    //world.register(npc, true);
+    //this.add(npc);
   }
 
   void generateNpc() {
     // NETWORK stuff
-    addNpc(200, 200);
+    //addNpc(200, 200);
   }
 }
