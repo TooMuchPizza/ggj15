@@ -1,3 +1,4 @@
+float npchealth = 100;
 class Npc extends Entity {
   Npc(float x, float y) {
     super(x, y, 16);

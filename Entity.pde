@@ -13,6 +13,7 @@ class Entity extends MassedBeing {
   void draw() {
 _mass = 100;
     noStroke();
+    fill(255,255,255);
     _shape.draw();
   }
   

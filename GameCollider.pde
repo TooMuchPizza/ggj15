@@ -10,6 +10,8 @@ class GameCollider extends GenericMassedCollider<Entity, Entity> {
               e2.getX(), e2.getY())
         <= e1.radius + e2.radius) {
       super.handle(e1, e2);
+      
+     playerhealth = playerhealth - 1;
 
     }
   }
