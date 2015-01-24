@@ -5,7 +5,7 @@ class Trap extends MassedBeing {
   }
 
   public void draw() {
-    fill (255, 0, 0);
-    _shape.draw();
+    //fill (255, 0, 0);
+    //_shape.draw();
   }
 }

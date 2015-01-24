@@ -27,7 +27,7 @@ void setup() {
   Hermes.setPApplet(this);
 
   gameController = new GameController ();
-  gameController.startGame ();
+  gameController.loadGame ();
   mainMenu = new MainMenu ();
 }
 

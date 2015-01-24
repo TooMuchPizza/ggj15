@@ -1,14 +1,6 @@
-
-
-
 class MainMenu {
 
-
-  MainMenu()
-  {
-  } 
-  void draw() {
-
+  void draw () {
     fill(0, 255, 255);
     textSize(80);
     text("No One Left Behind", 125, 140);
@@ -23,21 +15,20 @@ class MainMenu {
     text("Join Server", width/2 - 94, 450);
   }
 }
-void mousePressed() {
-  if(!started) {
+
+void mousePressed () {
+  if (!started) {
     if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
       isServer = true;
       started = true;
-      gameController.startGame();
+      gameController.startGame ();
     }
 
     if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
-     isServer = false;
-
+      isServer = false;
       started = true;
-      gameController.startGame();
+      gameController.startGame ();
     }
   } 
-  
 }
 

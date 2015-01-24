@@ -8,7 +8,7 @@ class GameController {
   GameController () {
   }
  
-  void startGame () {
+  void loadGame () {
     players = new ArrayList<Player>();
     Player p1 = new Player (150, 150);
 
@@ -29,7 +29,7 @@ class GameController {
 
     gameTimer = new GameTimer ();
   }
- 
+
   void startGame () {
     gameWorld.start ();
     gameTimer.start ();
