@@ -10,6 +10,7 @@ static final int WINDOW_HEIGHT = 600;
 
 World world;
 PostOffice po; 
+RockGroup rocks;
 Player player;
 
 

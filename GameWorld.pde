@@ -5,6 +5,9 @@ class GameWorld extends World {
   }
 
   void setup() {
+    rocks = new RockGroup(world);
+    rocks.generateRocks();
+
     player = new Player(300, 300);
     world.register(player, true);
     po.subscribe(player, POCodes.Key.W);
@@ -15,6 +18,8 @@ class GameWorld extends World {
     po.subscribe(player, POCodes.Key.DOWN);
     po.subscribe(player, POCodes.Key.LEFT);
     po.subscribe(player, POCodes.Key.RIGHT);
+
+    world.register(player, rocks, new RockCollider());
   }
   
   void draw() {
