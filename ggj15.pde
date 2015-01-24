@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import hermes.*;
 import hermes.hshape.*;
 import hermes.animation.*;
