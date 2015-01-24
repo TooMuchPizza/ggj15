@@ -42,7 +42,6 @@ class GameController {
       p.subscribe();
     }
     started = true;
-    gameTimer.start ();
   }
   
   void oscEvent(oscP5.OscMessage theOscMessage){
