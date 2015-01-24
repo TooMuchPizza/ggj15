@@ -4,6 +4,8 @@ import hermes.hshape.*;
 import hermes.animation.*;
 import hermes.physics.*;
 import hermes.postoffice.*;
+import oscP5.*;
+import netP5.*;
 
 public final int HEALTH = 100;
 static final int WINDOW_WIDTH = 1000;
