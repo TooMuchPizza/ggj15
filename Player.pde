@@ -22,6 +22,12 @@ class Player extends Entity {
     po.subscribe(this, POCodes.Key.RIGHT);
   }  
 
+  void draw() {
+    noStroke();
+    fill(255,255,255);
+    _shape.draw();
+  }
+
   void update() {
     super.update();
 
@@ -34,8 +40,7 @@ class Player extends Entity {
       println("FINISH"); 
     }
   }
-  
-  
+
   void receive(KeyMessage m) {
     int nKey = m.getKeyCode();
     boolean changedXVelocity, changedYVelocity;
@@ -75,7 +80,5 @@ class Player extends Entity {
           yVelocity = 0f;
       }
     }
-
-    println(getPosition().x + ", " + getPosition().y);
   }
 }
