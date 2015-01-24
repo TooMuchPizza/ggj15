@@ -1,11 +1,13 @@
 class Entity extends MassedBeing {
   
-  float speed = 150;
+  float speed = 150f;
+  float radius = 50f;
  
   Entity(float x, float y, float r) {
     super(new HCircle(HermesMath.makeVector(x, y), r),
-          new PVector(0,0,0),
+          new PVector(0, 0, 0),
           r, 0);
+    radius = r;
   }
   
   void draw() {
@@ -14,6 +16,5 @@ _mass = 100;
     _shape.draw();
   }
   
-  void update() {
-  }
+  void update() {}
 }
