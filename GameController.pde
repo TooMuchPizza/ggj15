@@ -13,7 +13,6 @@ class GameController {
  
   void loadGame() {
     po = new PostOffice();
-    hazard = new Hazard();
   }
 
   public void update() {
@@ -43,12 +42,13 @@ class GameController {
       p.subscribe();
     }
     gameWorld.start();
+    hazard = new Hazard(players);
   }
   
-  void oscEvent(oscP5.OscMessage theOscMessage){
-    if (isServer){
+  void oscEvent(oscP5.OscMessage theOscMessage) {
+    if (isServer) {
       String clientId = theOscMessage.netaddress().toString();
-      if (theOscMessage.addrPattern().equals("join")){
+      if (theOscMessage.addrPattern().equals("join")) {
         //check if number of player needed is reached or game is already started.
         if (!playerConnections.containsKey(clientId) && !started){
           playerConnections.put(clientId, new Player(0, 0)); //TODO
@@ -56,13 +56,13 @@ class GameController {
           oscP5.send(myMessage, theOscMessage.netaddress());
         }
       } else {
-        if (started && playerConnections.containsKey(clientId)){
+        if (started && playerConnections.containsKey(clientId)) {
           Player playerToNotice = playerConnections.get(clientId);
           playerToNotice.messageFromClient(theOscMessage);
         }
       }
     }
-    else{
+    else {
       p1.messageFromServer(theOscMessage);
     }
   } 
