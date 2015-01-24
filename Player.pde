@@ -30,6 +30,13 @@ class Player extends Being {
       if(nKey == POCodes.Key.S || nKey == POCodes.Key.DOWN) {
         getVelocity().y = PLAYER_SPEED;
       }
+
+      float vel = sqrt(pow(getVelocity().y,2) + pow(getVelocity().x,2));
+      if(vel > 0.0) {
+        getVelocity().x = PLAYER_SPEED*getVelocity().x/vel;
+        getVelocity().y = PLAYER_SPEED*getVelocity().y/vel;
+      }
+
     } else {
       if( nKey == POCodes.Key.D || nKey == POCodes.Key.RIGHT ||
           nKey == POCodes.Key.A || nKey == POCodes.Key.LEFT) {
