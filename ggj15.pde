@@ -17,7 +17,7 @@ GameCamera cam;
 PostOffice po; 
 
 
-RockGroup rocks;
+
 Player player;
 Player player2;
 NpcGroup npcs;

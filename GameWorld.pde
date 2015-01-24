@@ -5,9 +5,9 @@ class GameWorld extends World {
   }
 
   void setup() {
-    rocks = new RockGroup(world);
+    RockGroup rocks = new RockGroup(world);
     rocks.generateRocks();
-    walls = new WallGroup(world);
+    WallGroup walls = new WallGroup(world);
     walls.generateWalls();
     player = new Player(40, 500);
     world.register(player, true);
