@@ -26,7 +26,7 @@ class MainMenu {
 void mousePressed() {
   if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
 isServer = true;
-    gameController.draw();
+
     started = true;
     gameController.startGame();
   }
@@ -34,13 +34,7 @@ isServer = true;
   if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
    isServer = false;
   }
-  
-
-  println(isServer);
-  
-  
-  
-  
+   
   
 }
 
