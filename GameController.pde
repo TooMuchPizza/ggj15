@@ -10,14 +10,14 @@ class GameController {
 
     players.add (p1);
 
-    gameCamera = new GameCamera (p1);
+    hud = new Hud (p1);
+    gameCamera = new GameCamera (p1, hud);
 
     po = new PostOffice ();
 
     gameWorld = new GameWorld (gameCamera);
     gameWorld.loadMap (new Map ()); 
     gameWorld.addPlayer(p1);
-    hud = new Hud (p1);
 
     for (Player p: players) {
       p.subscribe();
@@ -30,6 +30,6 @@ class GameController {
 
   public void draw () {
     gameWorld.draw ();
-    hud.draw ();
+    //hud.draw ();
   }
 }

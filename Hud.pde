@@ -1,13 +1,17 @@
 class Hud {
   Player player;
+  String healthStr;
 
   Hud (Player _player) {
     player = _player;
   }
 
-  void draw(){
+  void update () {
+    healthStr = str(player.health);
+  }
+
+  void draw () {
     textSize(20);
-    String healthStr = str(player.health);
     fill(255,18,43);
     rect(((player.getPosition().x - WINDOW_WIDTH / 2) + 30),
           ((player.getPosition().y - WINDOW_HEIGHT / 2) + 60),
