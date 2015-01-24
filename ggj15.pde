@@ -5,11 +5,7 @@ import hermes.physics.*;
 import hermes.postoffice.*;
 
 
-<<<<<<< HEAD
-static final int WINDOW_WIDTH = 800;
-=======
 static final int WINDOW_WIDTH = 1000;
->>>>>>> ef3b935e4bd74d5f87348582c5afddbed4db12cd
 static final int WINDOW_HEIGHT = 600;
 
 GameWorld world;
