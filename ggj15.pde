@@ -16,8 +16,6 @@ static final int MAP_WIDTH = 2000;
 static final int MAP_HEIGHT = 1000;
 Boolean started = false;
 Boolean isServer = false;
-//int GAME_WIDTH = 600;
-//int GAME_HEIGHT = 300;
 
 PostOffice po; 
 //NpcGroup npcs;

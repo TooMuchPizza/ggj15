@@ -19,9 +19,8 @@ class GameController {
     hazard.update();
   }
 
-  void startGame() {
-    started = true;
-    if (isServer) {
+  void startGame () {
+    if (isServer){
       oscP5 = new OscP5(this,5001);
       playerConnections = new HashMap<String, Player>();
     }
@@ -43,6 +42,7 @@ class GameController {
     }
     gameWorld.start();
     hazard = new Hazard(players);
+    started = true;
   }
   
   void oscEvent(oscP5.OscMessage theOscMessage) {
@@ -67,7 +67,9 @@ class GameController {
     }
   } 
 
-  void draw() {
-    gameWorld.draw();
+  public void draw () {
+    if (started && !isServer) {
+      gameWorld.draw();
+    }
   }
 }
