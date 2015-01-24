@@ -4,43 +4,42 @@ class GameController {
   GameWorld gameWorld;
   Hud hud;
   GameCamera gameCamera;
-  GameTimer gameTimer;
+  Hazard hazard;
   OscP5 oscP5;
   Player p1;
 
-  GameController () {
+  GameController() {
   }
  
-  void loadGame () {
-    po = new PostOffice ();
-    gameTimer = new GameTimer ();
+  void loadGame() {
+    po = new PostOffice();
+    hazard = new Hazard();
   }
 
-  public void update () {
-    gameTimer.update ();
+  public void update() {
+    hazard.update();
   }
 
   void startGame () {
     if (isServer){
       oscP5 = new OscP5(this,5001);
       playerConnections = new HashMap<String, Player>();
-    } else {
-        players = new ArrayList<Player>();
-        p1 = new Player (150, 150);
+    }
+
+    players = new ArrayList<Player>();
+    p1 = new Player (150, 150);
     
-        players.add (p1);
+    players.add(p1);
     
-        hud = new Hud (p1);
-        gameCamera = new GameCamera (p1, hud);
+    hud = new Hud(p1);
+    gameCamera = new GameCamera(p1, hud);
     
-        gameWorld = new GameWorld (gameCamera);
-        gameWorld.loadMap (new Map ()); 
-        gameWorld.addPlayer(p1);
+    gameWorld = new GameWorld(gameCamera);
+    gameWorld.loadMap(new Map()); 
+    gameWorld.addPlayer(p1);
     
-        for (Player p: players) {
-          p.subscribe();
-        }
-        gameWorld.start();
+    for (Player p: players) {
+      p.subscribe();
     }
     started = true;
     gameTimer.start ();

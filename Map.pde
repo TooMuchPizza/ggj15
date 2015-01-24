@@ -2,6 +2,7 @@ class Map {
   ArrayList<Rock> rocks;
   ArrayList<Wall> walls;
   ArrayList<Trap> traps;
+  int[] ticks;
 
   Map () {
     rocks = new ArrayList<Rock>();
@@ -14,6 +15,8 @@ class Map {
     addWall(-10,MAP_HEIGHT-10, MAP_WIDTH,10);
     addWall(MAP_WIDTH-10,0,10,MAP_HEIGHT);
     addTrap(200);
+
+    ticks = new int[] {0, 10, 20, 30};
   }
   
   void addRock (float x, float y, float r) {

@@ -1,6 +1,6 @@
 class MainMenu {
 
-  void draw () {
+  void draw() {
     fill(0, 255, 255);
     textSize(80);
     text("No One Left Behind", 125, 140);
@@ -16,16 +16,16 @@ class MainMenu {
   }
 }
 
-void mousePressed () {
+void mousePressed() {
   if (!started) {
     if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
       isServer = true;
-      gameController.startGame ();
+      gameController.startGame();
     }
 
     if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
       isServer = false;
-      gameController.startGame ();
+      gameController.startGame();
     }
   } 
 }
