@@ -5,7 +5,7 @@ class WallGroup extends Group<Wall> {
   }
 
   void addWall(float x, float y, float w,float h) {
-    Wall wall = new Wall(x, y, w,h);
+    Wall wall = new Wall(x, y, w, h);
     world.register(wall, false);
     this.add(wall);
   }

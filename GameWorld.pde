@@ -11,6 +11,7 @@ class GameWorld extends World {
     walls.generateWalls();
     player = new Player(40, 500);
     world.register(player, true);
+
     po.subscribe(player, POCodes.Key.W);
     po.subscribe(player, POCodes.Key.A);
     po.subscribe(player, POCodes.Key.S);
@@ -26,8 +27,8 @@ class GameWorld extends World {
     world.register(player, rocks, new GameCollider());
     world.register(player, npcs, new GameCollider());
     world.register(npcs, rocks, new GameCollider());
-    world.register(player,walls, new WallCollider());
-    world.register(npcs,walls, new WallCollider());
+    world.register(player, walls, new WallCollider());
+    world.register(npcs, walls, new WallCollider());
   }
   
   void draw() {

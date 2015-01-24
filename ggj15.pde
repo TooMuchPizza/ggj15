@@ -32,7 +32,7 @@ void setup() {
   po = new PostOffice();
   world = new GameWorld();
   world.start();
-  hud= new Hud();
+  hud = new Hud();
 }
 
 
