@@ -7,7 +7,8 @@ class GameWorld extends World {
   void setup() {
     rocks = new RockGroup(world);
     rocks.generateRocks();
-
+    walls = new WallGroup(world);
+    walls.generateWalls();
     player = new Player(300, 300);
     world.register(player, true);
     po.subscribe(player, POCodes.Key.W);
@@ -25,6 +26,8 @@ class GameWorld extends World {
     world.register(player, rocks, new GameCollider());
     world.register(player, npcs, new GameCollider());
     world.register(npcs, rocks, new GameCollider());
+    world.register(player,walls, new WallCollider());
+    world.register(npcs,walls, new WallCollider());
   }
   
   void draw() {

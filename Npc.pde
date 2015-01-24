@@ -4,8 +4,10 @@ class Npc extends Entity {
   }
 
   void update() {
+
     getVelocity().x = 200f * cos((float)millis() / 1000f);
     getVelocity().y = 250f * sin((float)millis() / 1000f);
+
     super.update();
     // NETWORK stuff
   }

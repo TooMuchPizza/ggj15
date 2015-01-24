@@ -1,3 +1,5 @@
+
+
 class GameCamera extends HCamera {
   GameCamera() {
     super();
@@ -5,7 +7,7 @@ class GameCamera extends HCamera {
   
   void draw() {
     setPosition(player.getPosition().x - WINDOW_WIDTH / 2,
-                player.getPosition().y - WINDOW_HEIGHT / 2);
-    super.draw();
-  }
+                player.getPosition().y - WINDOW_HEIGHT / 2 );
+    super.draw();  
+}
 }
