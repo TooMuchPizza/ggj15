@@ -11,6 +11,12 @@ class Player extends Entity {
     
   }
 
+  void draw() {
+    noStroke();
+    fill(255,255,255);
+    _shape.draw();
+  }
+
   void update() {
     super.update();
     
@@ -23,6 +29,7 @@ class Player extends Entity {
     }
    
   }
+
   void receive(KeyMessage m) {
     int nKey = m.getKeyCode();
     boolean changedXVelocity, changedYVelocity;

@@ -19,7 +19,6 @@ PostOffice po;
 
 
 Player player;
-Player player2;
 NpcGroup npcs;
 WallGroup walls;
 Hud hud;
