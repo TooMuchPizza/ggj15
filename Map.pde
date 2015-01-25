@@ -8,8 +8,8 @@ class Map {
     rocks = new ArrayList<Rock>();
     walls = new ArrayList<Wall>();
     //traps = new ArrayList<Trap>();
-   for(int i=0; i<1800; i=i+120){
-    for(int c=0; i<800; i=i+100){
+   for(int i=0; i<1800; i += 120){
+    for(int c=0; c<800; c += 100){
       float random = random(50,100);
       addRock(i+random, c+random, random);
  }
