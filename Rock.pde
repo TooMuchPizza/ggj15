@@ -4,7 +4,7 @@ class Rock extends Entity {
   Rock(float x, float y, float r) {
     super(x, y, r);
     _r = r;
-    shape = loadShape("illustrator2.svg");
+    shape = loadShape("rocce.svg");
     
   }
 
