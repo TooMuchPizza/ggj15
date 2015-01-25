@@ -9,7 +9,7 @@ class Hazard {
     players = _players;
 
     attackTicks = new int[]{0, 10, 20};
-    probabilityWeight = new int[players.size()];
+    probabilityWeight = new int[_players.size()];
     attackNum = 0;
   }
 

@@ -41,7 +41,12 @@ class Player extends Entity {
   }
   
   void messageFromServer(oscP5.OscMessage theOscMessage){
-    //TODO
+    if (theOscMessage.addrPattern().toString().equals("/joinack")){
+        println("joinack");
+    }
+    else if (theOscMessage.addrPattern().toString().equals("/startgame")){
+        println("Starting game.");
+    }
   }
 
   void draw() {
