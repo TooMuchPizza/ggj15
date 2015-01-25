@@ -14,16 +14,17 @@ class Hazard extends World {
   }
 
   void update() {
-    println("Updating hazard");
+    //println("Updating hazard");
     if (millis() > attackTicks[attackNum]) {
       Object target = chooseNextTarget();
+      attackNum++;
       //attackPlayer(target);
     }
   }
 
   Object chooseNextTarget() {
     int victimNum = r.nextInt(playerConnections.size());
-    println("Player " + victimNum + " should be shitting his pants right now.");
+    //println("Player " + (victimNum + 1) + " should be shitting his pants right now.");
     Object[] values = playerConnections.values().toArray();
     println(values.length);
     return values[r.nextInt(values.length)];
