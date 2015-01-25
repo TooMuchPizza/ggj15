@@ -11,7 +11,6 @@ class Hud {
   }
 
   void draw() {
-    println("Drawing HUD");
     textSize(20);
     fill(255,18,43);
     rect(((player.getPosition().x - WINDOW_WIDTH / 2) + 30),

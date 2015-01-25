@@ -1,26 +1,32 @@
 class Hazard {
   int[] attackTicks; //in ms, when the "enemy" will attack
   int attackNum;
-  ArrayList<Player> players;
+  HashMap<TcpClient, Player> playerConnections;
+  Random r;
 
   int[] probabilityWeight;
 
-  Hazard(ArrayList<Player> _players) {
-    players = _players;
+  Hazard(HashMap<TcpClient, Player> _playerConnections) {
+    playerConnections = playerConnections;
 
     attackTicks = new int[]{0, 10, 20};
-    probabilityWeight = new int[_players.size()];
     attackNum = 0;
+    r = new Random();
+    println("Hazard created");
   }
 
   void update() {
+    println("updating");
     if (millis() > attackTicks[attackNum]) {
-      //Player target = chooseNextTarget();
+      Object target = chooseNextTarget();
       //attackPlayer(target);
     }
   }
 
-  void chooseNextTarget() {
-    
+  Object chooseNextTarget() {
+    int victimNum = r.nextInt(playerConnections.size());
+    println("Player " + victimNum + " should be shitting his pants right now.");
+    Object[] values = playerConnections.values().toArray();
+    return values[r.nextInt(values.length)];
   }
 }

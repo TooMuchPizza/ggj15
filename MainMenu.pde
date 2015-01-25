@@ -1,14 +1,24 @@
-
-PFont font;
 class MainMenu {
+  PFont font;
+  boolean drawMenu;
+  boolean drawGrayScreen;
+
+  MainMenu() {
+    font = loadFont("casa.vlw");
+    drawMenu = true;
+    drawGrayScreen = false;
+  }
 
   void draw() {
-    if(!waitingStart) {
+    if(drawGrayScreen) {
+      background(100);
+    }
+    else if (drawMenu) {
+      //Draw the menu
       fill(0, 255, 255);
       
-      font = loadFont("casa.vlw");
-smooth(8);
-textFont(font);      
+      smooth(8);
+      textFont(font);      
       textSize(180);
       text("No One Left Behind", 125, 140);
       fill(255);
@@ -20,25 +30,25 @@ textFont(font);
       fill(0);
       text("Create Server", width/2 - 117, 288);
       text("Join Server", width/2 - 94, 450);
-    } else {
-      background(100);
     }
   }
-}
 
-void mousePressed() {
-  if (!started) {
-      if (mouseX >366  && mouseX < 633  && mouseY >253  && mouseY < 318) {
+  void mouseClick(float x, float y) {
+    if (started) return;
+      if (x > 366  && x < 633  && y > 253 && y < 318) {
         isServer = true;
+        drawMenu = false;
+        drawGrayScreen = true;
         gameController.startGame();
-        waitingStart = true;
+        //waitingStart = true;
       }
-
-      if (mouseX >336  && mouseX <635  && mouseY >414  && mouseY <479 ) {
+  
+      if (x > 336  && x < 635  && y > 414  && y < 479 ) {
         isServer = false;
+        drawMenu = false;
+        drawGrayScreen = true;
         gameController.startGame();
-        waitingStart = true;
+        //waitingStart = true;
       }
-  } 
+  }
 }
-

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import hermes.*;
 import hermes.hshape.*;
 import hermes.animation.*;
@@ -15,11 +16,9 @@ static final int WINDOW_HEIGHT = 600;
 static final int MAP_WIDTH = 2000;
 static final int MAP_HEIGHT = 1000;
 Boolean started = false;
-Boolean waitingStart = false;
 Boolean isServer = false;
 
 PostOffice po; 
-//NpcGroup npcs;
 MainMenu mainMenu;
 GameController gameController;
 
@@ -30,16 +29,16 @@ void setup() {
   background(0); 
   Hermes.setPApplet(this);
 
-  gameController = new GameController();
   mainMenu = new MainMenu();
+  gameController = new GameController();
 }
-
-//void update() {
-//  gameController.update();
-//}
 
 void draw() {
   if (started) {
     gameController.draw();
   } else mainMenu.draw();
+}
+
+void mousePressed() {
+  mainMenu.mouseClick(mouseX, mouseY);
 }
