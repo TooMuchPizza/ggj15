@@ -4,20 +4,15 @@ class GameController {
   GameWorld gameWorld;
   Hud hud;
   GameCamera gameCamera;
-  Hazard hazard;
   OscP5 oscP5;
   Player p1;
+
+  Hazard hazard;
 
   GameController() {
     po = new PostOffice();
   }
  
-  //won't run must be into the world
-  public void update() {
-    println("updating GameController");
-    hazard.update();
-  }
-
   void startGame () {
     if (isServer) {
       oscP5 = new OscP5(this, 5002, OscP5.TCP);
