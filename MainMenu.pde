@@ -30,6 +30,10 @@ class MainMenu {
       fill(0);
       text("Create Server", width/2 - 117, 288);
       text("Join Server", width/2 - 94, 450);
+    } else {
+      background(100);
+      textSize(90);
+      text("Waiting Connections",200,500);
     }
   }
 
