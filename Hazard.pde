@@ -14,18 +14,20 @@ class Hazard extends World {
   }
 
   void update() {
+    if (attackNum >= attackTicks.length) return;
     if (millis() > attackTicks[attackNum]) {
       attackNum++;
       Object target = chooseNextTarget();
-      //oscP5.send("attack ack", target);
+      oscP5.OscMessage msg = new oscP5.OscMessage("atk ack");
+      gameController.oscP5.send(msg, (TcpClient)target);
     }
   }
 
   Object chooseNextTarget() {
     int victimNum = r.nextInt(gameController.playerConnections.size());
     println("Target: " + (victimNum + 1));
-    Object[] values = gameController.playerConnections.values().toArray();
-    println(values.length);
-    return values[r.nextInt(values.length)];
+    Object[] keys = gameController.playerConnections.keySet().toArray();
+    println(keys.length);
+    return keys[r.nextInt(keys.length)];
   }
 }
