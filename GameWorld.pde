@@ -53,11 +53,6 @@ class GameWorld extends World {
     //}
   }
 
-  void update() {
-    super.update();
-    //hazard.update();
-  }
-
   void draw() {
     background(0);
     super.draw();

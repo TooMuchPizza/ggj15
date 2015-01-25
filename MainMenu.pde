@@ -34,7 +34,7 @@ class MainMenu {
   }
 
   void mouseClick(float x, float y) {
-    if (started) return;
+    if (!drawMenu) return;
       if (x > 366  && x < 633  && y > 253 && y < 318) {
         isServer = true;
         drawMenu = false;

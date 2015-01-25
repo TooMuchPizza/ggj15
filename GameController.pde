@@ -12,6 +12,7 @@ class GameController {
     po = new PostOffice();
   }
  
+  //won't run must be into the world
   public void update() {
     println("updating GameController");
     hazard.update();
@@ -34,9 +35,7 @@ class GameController {
       gameWorld.loadMap(new Map()); 
       gameWorld.addPlayer(p1);
       
-      for (Player p: players) {
-        p.subscribe();
-      }
+      for (Player p: players) p.subscribe();
       
       oscP5 = new OscP5(this, "127.0.0.1", 5002, OscP5.TCP); //TODO
       println("Client invia join al server");
@@ -66,6 +65,7 @@ class GameController {
           oscP5.send(myMessage,theOscMessage.tcpConnection());
           if (playerConnections.keySet().size() == numberOfClients){
             started = true;
+            hazard.start();
             myMessage = new oscP5.OscMessage("/startgame");
             myMessage.add(playerConnections.keySet().size());
             sendToAllPlayers(myMessage);
