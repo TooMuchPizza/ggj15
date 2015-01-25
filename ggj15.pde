@@ -22,6 +22,8 @@ PostOffice po;
 MainMenu mainMenu;
 GameController gameController;
 
+int numberOfClients = 3; 
+
 void setup() {
   size(WINDOW_WIDTH, WINDOW_HEIGHT);
   background(0); 
