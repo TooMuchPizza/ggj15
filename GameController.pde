@@ -37,7 +37,7 @@ class GameController {
       oscP5.OscMessage myMessage = new oscP5.OscMessage("/join");
       //myMessage.add(p1.getPosition().x);
       //myMessage.add(p1.getPosition().y);
-      //oscP5.send(myMessage);
+      oscP5.send(myMessage);
     }
   }
   
