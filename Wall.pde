@@ -10,7 +10,7 @@ class Wall extends MassedBeing {
     _position.y = 0;
   }
 
-  public void draw() {
+  void draw() {
     fill(30);
     noStroke();
     _shape.draw();

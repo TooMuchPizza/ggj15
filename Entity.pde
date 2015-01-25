@@ -10,5 +10,5 @@ class Entity extends MassedBeing {
     radius = r;
   }
 
-  void update() {}
+  void draw() { println("test"); }
 }

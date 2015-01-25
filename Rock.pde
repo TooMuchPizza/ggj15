@@ -7,13 +7,12 @@ class Rock extends Entity {
     
   }
 
-  public void draw() {
-    
-    shape(shape,0-_r/2,0-_r/2,_r*2,_r*2);
-    
+  void draw() {
+
     noStroke();
     noFill();
     _shape.draw();
+    shape(shape,0-_r/2,0-_r/2,_r*2,_r*2);
   }
 
 

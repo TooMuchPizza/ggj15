@@ -31,18 +31,15 @@ void setup() {
   Hermes.setPApplet(this);
 
   gameController = new GameController();
-  gameController.loadGame();
   mainMenu = new MainMenu();
 }
 
-void update() {
-  gameController.update ();
-}
+//void update() {
+//  gameController.update();
+//}
 
 void draw() {
   if (started) {
     gameController.draw();
-  } else {
-    mainMenu.draw();
-  }
+  } else mainMenu.draw();
 }
