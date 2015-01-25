@@ -1,6 +1,6 @@
 PShape shape;
-float _r;
 class Rock extends Entity {
+  float _r;
   Rock(float x, float y, float r) {
     super(x, y, r);
     _r = r;
@@ -10,8 +10,9 @@ class Rock extends Entity {
 
   void draw() {
     noStroke();
-    noFill();
+     noFill();
     _shape.draw();
-    shape(shape, -_r, -_r, _r*2, _r*2);
+    shapeMode(CENTER);
+    shape(shape, 0, 0, _r*2, _r*2);
   }
 }
