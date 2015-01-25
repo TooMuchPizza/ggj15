@@ -22,7 +22,7 @@ class MainMenu {
       //Draw the menu
       image(image,0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
       textFont(font);
-      textSize(90);
+      textSize(70);
       fill(255);
       text("Create Server", width/2 - 117, 288);
       text("Join Server", width/2 - 94, 450);
