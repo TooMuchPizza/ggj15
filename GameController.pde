@@ -4,7 +4,7 @@ class GameController {
   GameWorld gameWorld;
   Hud hud;
   GameCamera gameCamera;
-  //Hazard hazard;
+  Hazard hazard;
   OscP5 oscP5;
   Player p1;
 
@@ -12,14 +12,17 @@ class GameController {
     po = new PostOffice();
   }
  
-//  public void update() {
-//    hazard.update();
-//  }
+  //won't run must be into the world
+  public void update() {
+    println("updating GameController");
+    hazard.update();
+  }
 
   void startGame () {
     if (isServer) {
-      oscP5 = new OscP5(this,5002, OscP5.TCP);
+      oscP5 = new OscP5(this, 5002, OscP5.TCP);
       playerConnections = new HashMap<TcpClient, Player>();
+      hazard = new Hazard(playerConnections);
     } else {
       players = new ArrayList<Player>();
       p1 = new Player (150, 150);
@@ -32,17 +35,12 @@ class GameController {
       gameWorld.loadMap(new Map()); 
       gameWorld.addPlayer(p1);
       
-      for (Player p: players) {
-        p.subscribe();
-      }
+      for (Player p: players) p.subscribe();
       
       oscP5 = new OscP5(this, "127.0.0.1", 5002, OscP5.TCP); //TODO
       println("Client invia join al server");
       oscP5.send("/join", new Object[] {new Integer(1)}); 
-      
     }
-    //hazard = new Hazard(players);
-
   }
   
   void sendToPlayer(){
@@ -53,7 +51,7 @@ class GameController {
         oscP5.send(myMessage, p);       
     }
   }
-  
+
   void oscEvent(oscP5.OscMessage theOscMessage) {
     println("chiamata alla callback." + theOscMessage.addrPattern().toString());
     if (isServer) {
@@ -67,6 +65,7 @@ class GameController {
           oscP5.send(myMessage,theOscMessage.tcpConnection());
           if (playerConnections.keySet().size() == numberOfClients){
             started = true;
+            hazard.start();
             myMessage = new oscP5.OscMessage("/startgame");
             myMessage.add(playerConnections.keySet().size());
             sendToAllPlayers(myMessage);
@@ -86,11 +85,18 @@ class GameController {
         started = true;
         gameWorld.start();
       }
+      if (theOscMessage.addrPattern().toString().equals("/status")) {
+        //println(theOscMessage.get(0).stringValue());
+      }
     }
   } 
 
-  void draw () {
-    if (started && !isServer) {
+  public void draw () {
+    if(isServer) {
+      oscP5.OscMessage myMessage = new oscP5.OscMessage("/status");
+      myMessage.add("asd");
+      sendToAllPlayers(myMessage);
+    } else {
       gameWorld.draw();
     }
   }

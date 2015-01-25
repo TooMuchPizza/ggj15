@@ -46,6 +46,9 @@ class Player extends Entity {
     else if (theOscMessage.addrPattern().toString().equals("/startgame")){
         println("Starting game.");
     }
+    else {
+      println(theOscMessage);
+    }
   }
 
   void draw() {
