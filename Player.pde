@@ -2,13 +2,18 @@ class Player extends Entity {
   float speed;
   float xVelocity, yVelocity;
   float health;
+  float _r;
+  PShape _image;
 
   Player (float x, float y) {
     super (x, y, 16);
+    _r = 16;
 
     health = 100f;
     speed = 200f;
     xVelocity = yVelocity = 0f;
+
+    _image = loadShape("palla.svg");
   }
   
   public void subscribe () {
@@ -53,8 +58,11 @@ class Player extends Entity {
 
   void draw() {
     noStroke();
-    fill(255,255,255);
+    noFill();
+    //fill(255,255,255);
     _shape.draw();
+    shapeMode(CENTER);
+    shape(_image, 0, 0, _r*2, _r*2);
   }
 
   void receive(KeyMessage m) {
