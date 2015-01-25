@@ -17,7 +17,7 @@ class Hazard extends World {
     if (millis() > attackTicks[attackNum]) {
       attackNum++;
       Object target = chooseNextTarget();
-      oscP5.send("attack ack", target);
+      //oscP5.send("attack ack", target);
     }
   }
 
