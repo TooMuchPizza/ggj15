@@ -4,7 +4,6 @@ class Rock extends Entity {
   }
 
   void draw() {
-    println("Drawing a Rock");
     noStroke();
     fill(100);
     _shape.draw();

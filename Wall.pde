@@ -11,7 +11,6 @@ class Wall extends MassedBeing {
   }
 
   void draw() {
-    println("Drawing a Wall");
     fill(30);
     noStroke();
     _shape.draw();

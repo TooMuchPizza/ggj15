@@ -12,7 +12,6 @@ class GameCamera extends HCamera {
   }
 
   void draw () {
-    println("Drawing Camera");
     setPosition(player.getPosition().x - WINDOW_WIDTH / 2,
       player.getPosition().y - WINDOW_HEIGHT / 2 );
     super.draw();
