@@ -24,11 +24,15 @@ image = loadImage("sfondo-DEFINITIVO.png");
       fill(255);
       text("Create Server", width/2 - 117, 288);
       text("Join Server", width/2 - 94, 450);
+    } else {
+      background(100);
+      textSize(90);
+      text("Waiting Connections",200,500);
     }
   }
 
   void mouseClick(float x, float y) {
-    if (started) return;
+    if (!drawMenu) return;
       if (x > 366  && x < 633  && y > 253 && y < 318) {
         isServer = true;
         drawMenu = false;
