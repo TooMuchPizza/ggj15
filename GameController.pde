@@ -34,7 +34,10 @@ class GameController {
       
       oscP5 = new OscP5(this, "127.0.0.1", 5002, OscP5.TCP); //TODO
       println("Client invia join al server");
-      oscP5.send("/join", new Object[] {new Integer(1)}); 
+      oscP5.OscMessage myMessage = new oscP5.OscMessage("/join");
+      //myMessage.add(p1.getPosition().x);
+      //myMessage.add(p1.getPosition().y);
+      oscP5.send(myMessage);
     }
   }
   
@@ -43,7 +46,7 @@ class GameController {
   
   void sendToAllPlayers(oscP5.OscMessage myMessage){
     for (TcpClient p: playerConnections.keySet()) {
-        oscP5.send(myMessage, p);       
+        oscP5.send(myMessage, p);
     }
   }
 
@@ -51,7 +54,7 @@ class GameController {
     println("chiamata alla callback." + theOscMessage.addrPattern().toString());
     if (isServer) {
       if (theOscMessage.addrPattern().toString().equals("/join")) {
-        println("Server ha ricevuto join dal client");
+        //println(theOscMessage.get(0).stringValue());
         //check if number of player needed is reached or game is already started.
         if (!playerConnections.containsKey(theOscMessage.tcpConnection()) && !started){
           playerConnections.put(theOscMessage.tcpConnection(), new Player(0, 0)); //TODO
@@ -82,15 +85,22 @@ class GameController {
       }
       if (theOscMessage.addrPattern().toString().equals("/status")) {
         //println(theOscMessage.get(0).stringValue());
+        //p.getPosition().x = theOscMessage.get(0).floatValue()
       }
     }
   } 
 
   public void draw () {
     if(isServer) {
-      oscP5.OscMessage myMessage = new oscP5.OscMessage("/status");
-      myMessage.add("asd");
-      sendToAllPlayers(myMessage);
+      /*for (TcpClient pk: playerConnections.keySet()) {
+        Player p = playerConnections.get(pk);
+        oscP5.OscMessage myMessage = new oscP5.OscMessage("/status");
+        myMessage.add(p.getPosition().x);
+        myMessage.add(p.getPosition().y);
+        myMessage.add(p.getVelocity().x);
+        myMessage.add(p.getVelocity().y);
+        oscP5.send(myMessage, pk);
+      }*/
     } else {
       gameWorld.draw();
     }
