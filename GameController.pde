@@ -17,7 +17,7 @@ class GameController {
     if (isServer) {
       oscP5 = new OscP5(this, 5002, OscP5.TCP);
       playerConnections = new HashMap<TcpClient, Player>();
-      hazard = new Hazard(playerConnections);
+      hazard = new Hazard(this);
     } else {
       players = new ArrayList<Player>();
       p1 = new Player (150, 150);

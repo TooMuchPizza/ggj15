@@ -22,7 +22,7 @@ PostOffice po;
 MainMenu mainMenu;
 GameController gameController;
 
-int numberOfClients = 2;
+int numberOfClients = 1;
 
 void setup() {
   size(WINDOW_WIDTH, WINDOW_HEIGHT);

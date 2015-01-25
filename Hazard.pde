@@ -1,12 +1,12 @@
 class Hazard extends World {
   int[] attackTicks; //in ms, when the "enemy" will attack
   int attackNum;
-  HashMap<TcpClient, Player> playerConnections;
+  GameController gameController;
   Random r;
 
-  Hazard(HashMap<TcpClient, Player> _playerConnections) {
+  Hazard(GameController gc) {
     super();
-    playerConnections = _playerConnections;
+    gameController = gc;
 
     attackTicks = new int[]{0, 10, 20};
     attackNum = 0;
@@ -14,18 +14,17 @@ class Hazard extends World {
   }
 
   void update() {
-    //println("Updating hazard");
     if (millis() > attackTicks[attackNum]) {
-      Object target = chooseNextTarget();
       attackNum++;
-      //attackPlayer(target);
+      Object target = chooseNextTarget();
+      oscP5.send("attack ack", target);
     }
   }
 
   Object chooseNextTarget() {
-    int victimNum = r.nextInt(playerConnections.size());
-    //println("Player " + (victimNum + 1) + " should be shitting his pants right now.");
-    Object[] values = playerConnections.values().toArray();
+    int victimNum = r.nextInt(gameController.playerConnections.size());
+    println("Target: " + (victimNum + 1));
+    Object[] values = gameController.playerConnections.values().toArray();
     println(values.length);
     return values[r.nextInt(values.length)];
   }
