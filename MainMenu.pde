@@ -1,9 +1,15 @@
+
+PFont font;
 class MainMenu {
 
   void draw() {
     if(!waitingStart) {
       fill(0, 255, 255);
-      textSize(80);
+      
+      font = loadFont("casa.vlw");
+smooth(8);
+textFont(font);      
+      textSize(180);
       text("No One Left Behind", 125, 140);
       fill(255);
 
