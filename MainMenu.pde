@@ -1,3 +1,4 @@
+PImage image;
 class MainMenu {
   PFont font;
   boolean drawMenu;
@@ -7,7 +8,9 @@ class MainMenu {
     font = loadFont("casa.vlw");
     drawMenu = true;
     drawGrayScreen = false;
-  }
+image = loadImage("sfondo-DEFINITIVO.png");  
+}
+  
 
   void draw() {
     if(drawGrayScreen) {
@@ -15,19 +18,10 @@ class MainMenu {
     }
     else if (drawMenu) {
       //Draw the menu
-      fill(0, 255, 255);
-      
-      smooth(8);
-      textFont(font);      
-      textSize(180);
-      text("No One Left Behind", 125, 140);
+      image(image,0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+      textFont(font);
+      textSize(90);
       fill(255);
-
-      fill(255);
-      rect(width/2 - 165, 250, 300, 65);
-      rect(width/2 - 165, 410, 300, 65);
-      textSize(30);
-      fill(0);
       text("Create Server", width/2 - 117, 288);
       text("Join Server", width/2 - 94, 450);
     } else {
