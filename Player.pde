@@ -49,7 +49,6 @@ class Player extends Entity {
   }
 
   void draw() {
-    println("Drawing a Player");
     noStroke();
     fill(255,255,255);
     _shape.draw();
