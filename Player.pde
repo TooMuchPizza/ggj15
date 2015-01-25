@@ -11,7 +11,6 @@ class Player extends Entity {
     xVelocity = yVelocity = 0f;
   }
   
-
   public void subscribe () {
     po.subscribe(this, POCodes.Key.W);
     po.subscribe(this, POCodes.Key.A);
@@ -50,6 +49,7 @@ class Player extends Entity {
   }
 
   void draw() {
+    println("Drawing a Player");
     noStroke();
     fill(255,255,255);
     _shape.draw();

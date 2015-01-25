@@ -4,29 +4,25 @@ class GameController {
   GameWorld gameWorld;
   Hud hud;
   GameCamera gameCamera;
-  Hazard hazard;
+  //Hazard hazard;
   OscP5 oscP5;
   Player p1;
 
   GameController() {
-  }
- 
-  void loadGame() {
     po = new PostOffice();
   }
-
-  public void update() {
-    hazard.update();
-  }
+ 
+//  public void update() {
+//    hazard.update();
+//  }
 
   void startGame () {
-    if (isServer){
+    if (isServer) {
       oscP5 = new OscP5(this,5002, OscP5.TCP);
       playerConnections = new HashMap<TcpClient, Player>();
     } else {
       players = new ArrayList<Player>();
       p1 = new Player (150, 150);
-      
       players.add(p1);
       
       hud = new Hud(p1);
@@ -88,11 +84,12 @@ class GameController {
       p1.messageFromServer(theOscMessage);
       if (theOscMessage.addrPattern().toString().equals("/startgame")) {
         started = true;
+        gameWorld.start();
       }
     }
   } 
 
-  public void draw () {
+  void draw () {
     if (started && !isServer) {
       gameWorld.draw();
     }

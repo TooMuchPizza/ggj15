@@ -3,7 +3,8 @@ class Rock extends Entity {
     super(x, y, r);
   }
 
-  public void draw() {
+  void draw() {
+    println("Drawing a Rock");
     noStroke();
     fill(100);
     _shape.draw();
