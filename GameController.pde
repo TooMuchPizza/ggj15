@@ -86,6 +86,9 @@ class GameController {
     else {
       println("Client riceve messaggio dal server.");
       p1.messageFromServer(theOscMessage);
+      if (theOscMessage.addrPattern().toString().equals("/startgame")) {
+        started = true;
+      }
     }
   } 
 

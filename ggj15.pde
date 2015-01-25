@@ -15,6 +15,7 @@ static final int WINDOW_HEIGHT = 600;
 static final int MAP_WIDTH = 2000;
 static final int MAP_HEIGHT = 1000;
 Boolean started = false;
+Boolean waitingStart = false;
 Boolean isServer = false;
 
 PostOffice po; 
@@ -22,7 +23,7 @@ PostOffice po;
 MainMenu mainMenu;
 GameController gameController;
 
-int numberOfClients = 3; 
+int numberOfClients = 1;
 
 void setup() {
   size(WINDOW_WIDTH, WINDOW_HEIGHT);
