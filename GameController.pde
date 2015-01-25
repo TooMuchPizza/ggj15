@@ -53,7 +53,7 @@ class GameController {
         oscP5.send(myMessage, p);       
     }
   }
-  
+
   void oscEvent(oscP5.OscMessage theOscMessage) {
     println("chiamata alla callback." + theOscMessage.addrPattern().toString());
     if (isServer) {
@@ -86,11 +86,18 @@ class GameController {
         started = true;
         gameWorld.start();
       }
+      if (theOscMessage.addrPattern().toString().equals("/status")) {
+        //println(theOscMessage.get(0).stringValue());
+      }
     }
   } 
 
-  void draw () {
-    if (started && !isServer) {
+  public void draw () {
+    if(isServer) {
+      oscP5.OscMessage myMessage = new oscP5.OscMessage("/status");
+      myMessage.add("asd");
+      sendToAllPlayers(myMessage);
+    } else {
       gameWorld.draw();
     }
   }
